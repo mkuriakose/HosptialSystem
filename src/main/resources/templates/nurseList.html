@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>List of Nurses</title>
+</head>
+<body>
+	<div align="center">
+		<h1>List of Nurses</h1>
+		<a href="new">Create New Nurse</a>
+		<br/><br/>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Nurse Id</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Unit</th>
+					<th>Phone No:</th>
+					<th>Actions</th>
+				</tr>
+				
+			</thead>
+			<tbody>
+				<tr th:each="nurse: ${nurseList}">
+					<td th:text="${nurse.id}">Nurse Id</td>
+					<td th:text="${nurse.firstName}">First Name</td>
+					<td th:text="${nurse.lastName}">Last Name</td>
+					<td th:text="${nurse.unit}">Unit</td>
+					<td th:text="${nurse.telephone}">Phone</td>
+					<td>
+						<a th:href="@{'/nurse/edit/' + ${nurse.id}}">Edit</a>
+					</td>	
+				</tr>
+			</tbody>	
+		</table>
+	</div>
+</body>
+</html>
